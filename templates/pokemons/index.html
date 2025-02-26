@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Pokemons Store</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>Pokemons</h1>
+    <ul>
+      <!-- We'll use Jinja's `for` loop to iterate over all pokemons -->
+      {% for pokemon in pokemons %}
+        <li>
+          <!-- We can use {{ placeholders }} in HTML attributes too -->
+          <a href="/pokemons/{{pokemon.id}}">{{pokemon.name}} is the type: {{pokemon.type}}</a>
+        </li>
+      {% endfor %}
+      <!-- Jinja isn't Python, so we need an endfor to close the loop -->
+    </ul>
+
+    <!-- This is a link to another page. -->
+    <!-- The browser will send `GET /pokemons/new` when the user clicks this -->
+    <a href="/pokemons/new">Add a new Pokemon</a>
+  </body>
+</html>
